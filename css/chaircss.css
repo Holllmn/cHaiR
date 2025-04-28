@@ -3,6 +3,30 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  img {
+    max-width: 100%; 
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+  img {
+    max-width: 50%; 
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    font-size: 18px;
+  }
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
