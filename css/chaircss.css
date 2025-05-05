@@ -1,177 +1,346 @@
-
 html {
     scroll-behavior: smooth;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-  img {
-    max-width: 100%; 
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  body {
-    font-size: 16px;
-  }
-  img {
-    max-width: 50%; 
-  }
-}
-
-@media (min-width: 1025px) {
-  body {
-    font-size: 18px;
-  }
+    font-size: 16px; 
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    grid-template-rows: 10vh auto auto 100vh 70vh;
+    font-family: 'Lexend', Arial, sans-serif; 
     background-color: #F4F1DE;
     color: #3D405B;
-    display: flex;
-    place-content: center;
+    line-height: 1.6; 
 }
+
 
 #contenedor {
-    width: 90vw;
-    height: auto;
-    background: #e07a5f;
-    display: grid;
-    grid-template-rows: 10vh auto auto 100vh 70vh 30vh;
+    width: 95%; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    background: #e07a5f; 
+    overflow: hidden; 
+}
+/* --- Estilos del Menú Lateral --- */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px; /* Ancho del menú */
+    background-color: #3D405B; /* Color de fondo oscuro */
+    padding: 4rem 1.5rem 1.5rem; /* Padding (más arriba para dejar espacio al botón de cierre) */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    transform: translateX(-100%); /* Oculto fuera de la pantalla a la izquierda */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001; /* Encima del overlay y del nav sticky */
+    display: flex;
+    flex-direction: column; /* Apilar enlaces verticalmente */
+    visibility: hidden; /* Ocultar completamente cuando está cerrado */
 }
 
-#contenedor nav {
+.side-menu.open {
+    transform: translateX(0); /* Visible en pantalla */
+    visibility: visible;
+}
+
+/* Estilos para los enlaces dentro del menú lateral */
+.side-menu a {
+    color: #F4F1DE; /* Color de texto claro */
+    text-decoration: none;
+    padding: 0.8rem 0; /* Espaciado vertical */
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(244, 241, 222, 0.2); /* Separador sutil */
+    transition: background-color 0.2s;
+}
+.side-menu a:last-child {
+    border-bottom: none; /* Quitar borde del último enlace */
+}
+
+.side-menu a:hover {
+    background-color: rgba(244, 241, 222, 0.1); /* Ligero hover */
+}
+
+
+/* Botón de cierre del menú lateral */
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #F4F1DE;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* --- Overlay --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1000; /* Debajo del menú, encima del contenido */
+}
+
+.menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- Modificaciones al Nav Existente --- */
+nav {
+    /* ... (tus estilos existentes para nav: sticky, background, padding, etc.) ... */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */ /* Cambiar esto si es necesario */
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Asegurar que esté por debajo del menú lateral y overlay */
     background-color: #F4F1DE;
-    grid-row: 1/2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Contenedor de enlaces principales */
+.main-nav-links {
+    display: flex; /* Por defecto visible en línea */
+    align-items: center;
+    margin-left: auto; /* Empuja los enlaces a la derecha */
+}
+
+.main-nav-links a {
+    /* ... (tus estilos existentes para los enlaces nav div a) ... */
+    color: #3D405B;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.main-nav-links a:hover {
+     color: #F4F1DE;
+     background-color: #81B29A;
+}
+
+
+/* --- Ajustes en Media Queries --- */
+
+/* Aplicar estilos de menú hamburguesa en pantallas pequeñas (ej. < 769px) */
+@media (max-width: 768px) {
+    /* Ocultar los enlaces de navegación principales */
+    .main-nav-links {
+        display: none;
+    }
+
+    /* Asegurar que el logo sea 'clickable' */
+    #logo-trigger {
+        cursor: pointer;
+    }
+
+    /* Ajustar padding del nav si es necesario */
+    nav {
+        justify-content: flex-start; /* Alinear logo a la izquierda */
+    }
+
+   /* (Mantén tus otras reglas de media query para .cajatx, #sec-2, etc.) */
+    html {
+        font-size: 15px;
+    }
+     #cajatx {
+         flex-direction: column;
+         gap: 0.8rem;
+         padding: 1rem;
+     }
+     #cajatx p { padding-bottom: 0.8rem; text-align: center; }
+     #cajatx p:last-child { padding-bottom: 0; }
+     #sec-2 { flex-direction: column; padding: 2rem 1rem; }
+     #sec-2 .image-container,
+     #sec-2 .text-content { flex-basis: auto; width: 95%; max-width: 500px; margin: 0 auto; }
+     .galeria-container { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; }
+      footer a { display: block; margin: 0.5rem 0; }
+
+}
+
+/* Puedes añadir más ajustes para móviles muy pequeños si es necesario */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+     .side-menu {
+        width: 220px; /* Menú un poco más estrecho */
+     }
+    /* ... (tus otras reglas para 480px) ... */
+     main { height: 60vh; min-height: 300px; }
+     #cajatx { width: 95%; padding: 0.8rem; }
+     #sec-1 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+      .galeria-container { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+
+}
+
+nav {
+    background-color: #F4F1DE;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0.5rem 1rem; 
+    flex-wrap: wrap; 
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
 }
 
-#logo img {
-    width: 60px;
-    height: auto;
-    margin-left: 10px;
-    align-content: center;
+.logo img {
+    height: 40px; 
+    width: auto;
+    display: block; 
 }
 
 nav div a {
-    color: black;
+    color: #3D405B; 
     text-decoration: none;
-    padding: 10px 15px;
-    transition: color 0.3s ease-in-out;
+    padding: 0.5rem 1rem; 
+    margin: 0 0.25rem; 
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 5px;
+    display: inline-block; 
 }
 
 nav div a:hover {
-    color: #dbfeb8;
-    background-color: #99c2a2;
-    border-radius: 5px;
+    color: #F4F1DE; 
+    background-color: #81B29A; 
 }
 
-#contenedor main {
-    background-size: contain;
-    display: flex ;
-    background-color: palevioletred;
-	grid-column: 1/2;
-    grid-row: 2/3;
-    place-content: center;
-	align-items: center;
+main {
+    position: relative; 
+    height: 80vh; 
+    min-height: 400px; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: #333; 
 }
 
 #video {
-    
-	position: relative;
-	top: 0;
-	bottom: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    aspect-ratio: 16/9;
-    z-index: 1;
+    height: 100%;
+    object-fit: cover; 
+    transform: translate(-50%, -50%); 
+    z-index: 1; 
 }
 
 #cajatx {
-   	z-index: 10;
-	position: absolute;
-	display: flex; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; 
+    width: 90%; 
+    max-width: 1000px; 
+    padding: 1.5rem; 
+    background-color: rgba(61, 64, 91, 0.7); 
+    color: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    justify-content: center; 
 }
 
 #cajatx p {
-    
-    display: flex;
-	width:300px;
-	height: 200px;
-	padding: 10px;
-	background-color: #7a918d4b;
-	color: #FFFFFF;
+    margin: 0; 
+    padding: 0.5rem;
+    flex: 1; 
+    min-width: 200px; 
 }
 
-#cajatx .border {
-	border-right: 1px solid;
-}
-
-#contenedor #sec-1 {
+#sec-1 {
     background-color: #99C2A2;
-    padding: 10px;
-    grid-row: 3/4;
+    padding: 2rem 1rem;
     display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 1.5rem;
 }
+
+#sec-1 article img {
+    display: block; 
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
 
 #sec-2 {
     display: flex;
     flex-direction: row; 
     align-items: center;
-    justify-content: space-between; 
+    justify-content: center; 
     background: linear-gradient(to bottom, #99C2A2, #E07A5F);
-    gap: 20px; 
-    padding: 20px;
+    gap: 2rem; 
+    padding: 3rem 1.5rem; 
+    flex-wrap: wrap; 
 }
 
-.image-container {
-    flex: 1; /* La imagen ocupa la mitad del espacio disponible */
-    max-width: 50%; /* Ajusta el ancho máximo */
+#sec-2 .image-container {
+    flex: 1 1 40%; 
+    max-width: 450px; 
+    min-width: 280px; 
 }
 
-.image-container img {
-    width: 100%; /* Asegura que la imagen se ajuste */
-    height: auto; /* Mantiene la proporción */
+#sec-2 .image-container img {
+    width: 100%;
+    height: auto;
     display: block;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.text-container {
-    flex: 1; /* Ocupa el otro 50% del espacio */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
+#sec-2 .text-content {
+    flex: 1 1 50%; 
+    max-width: 600px; 
+    color: #fff; 
+    background-color: rgba(61, 64, 91, 0.6); 
+    padding: 1.5rem;
+    border-radius: 8px;
 }
 
-#contenedor #sec-3 {
-    display: flex; /* Cambiar de grid a flex para un mejor centrado */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#sec-2 .text-content p {
+    margin-bottom: 1rem; 
+}
+#sec-2 .text-content p:last-child {
+    margin-bottom: 0; 
+}
+
+
+#sec-3 {
     background: linear-gradient(to bottom, #E07A5F, #F2CC8F);
-    padding: 20px;
-    min-height: 100vh; /* Ocupar toda la pantalla */
+    padding: 3rem 1rem;
+    text-align: center; 
+}
+
+#sec-3 h2 {
+    margin-bottom: 2rem;
+    color: #3D405B;
 }
 
 .galeria-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    max-width: 80vw; /* Asegurar que no sea muy angosto */
-    justify-content: center; /* Centrar las imágenes */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto; 
 }
 
 .imagen {
@@ -179,40 +348,48 @@ nav div a:hover {
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .imagen img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 10px; 
+
 }
 
 .imagen:hover img {
-    transform: scale(1.1);
-    opacity: 0.8;
+    transform: scale(1.08); 
+    opacity: 0.85;
 }
 
-/* Estilos del modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-	align-items: center;
+ 
+        display: none; 
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        box-sizing: border-box;
+
 }
 
 .modal-contenido {
-    max-width: 80%;
-    max-height: 80%;
+    display: block; 
+    max-width: 90%;
+    max-height: 90%;
+    width: auto; 
+    height: auto; 
     border-radius: 10px;
+    object-fit: contain; 
 }
 
 .cerrar {
@@ -220,18 +397,86 @@ nav div a:hover {
     top: 20px;
     right: 30px;
     color: white;
-    font-size: 30px;
+    font-size: 2.5rem; 
+    font-weight: bold; 
     cursor: pointer;
+    line-height: 1;
 }
 
+
 footer {
-    background: linear-gradient(to bottom, #F2CC8F #E07A5F, #F2CC8F);
+    background: #F2CC8F; 
     color: #3D405B;
     text-align: center;
-    padding: 20px;
+    padding: 1.5rem 1rem;
+}
+footer p {
+    margin: 0 0 0.5rem 0; 
 }
 footer a {
     color: #3D405B;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 0.75rem;
+    transition: color 0.3s;
+}
+footer a:hover {
+    color: #E07A5F; 
+}
+
+
+
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px; 
+    }
+
+    nav {
+        justify-content: center; 
+    }
+    nav .logo {
+        margin-bottom: 0.5rem; 
+    }
+    nav div {
+        margin-bottom: 0.5rem; 
+    }
+
+    #cajatx {
+        flex-direction: column; 
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    #cajatx p {
+    
+       padding-bottom: 0.8rem;
+       text-align: center; 
+    }
+    #cajatx p:last-child {
+       padding-bottom: 0;
+    }
+
+
+    #sec-2 {
+        flex-direction: column; 
+        padding: 2rem 1rem;
+    }
+
+    #sec-2 .image-container,
+    #sec-2 .text-content {
+        flex-basis: auto; 
+        width: 95%; 
+        max-width: 500px; 
+        margin: 0 auto; 
+    }
+
+    .galeria-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        gap: 0.8rem;
+    }
+
+     footer a {
+        display: block; 
+        margin: 0.5rem 0; 
+    }
 }
