@@ -4,107 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAiRS</title>
-    <link rel="stylesheet" href="css/chaircss.css">
-    <link href="imgs/logo.png" rel="icon" type="favicon">
+    <link rel="stylesheet" href="chaircss.css">
+    <link href="imgs/favicon.png" rel="icon" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <div id="side-menu" class="side-menu">
+        <button id="close-menu-btn" class="close-btn">&times;</button>
+        <a href="#main-content">ESTACION DE DESCANSO</a>
+        <a href="#sec-1">EJEMPLOS</a>
+        <a href="#sec-2">RIAGNOO</a>
+        <a href="#sec-3">GALERIA</a>
+    </div>
+
     <div id="contenedor">
-            <nav>
-                <div class="logo img" id="logo"><img src="imgs/favicon.png" alt="" width="auto" height="2%"></div>
-                <div><a href="#contenedor main">ESTACION DE DESCANSO</a></div>
-                <div><a href="#sec-1">EJEMPLOS</a></div>
-                <div><a href="#sec-2">RIAGNOO</a></div> 
-                <div><a href="#sec-3">GALERIA</a></div>
-                </nav>  
-<main>
-    <video id="video" autoplay loop muted>
-        <source src="imgs/chair.mp4" type="video/mp4">
-    </video>
-                         
-    <div id="cajatx">
-        <p class="border">Las sillas son elementos fundamentales en nuestros espacios, ya que no solo cumplen la función de proporcionar un lugar para sentarse, sino que también influyen en nuestra comodidad y bienestar. En entornos como la oficina, una silla ergonómica puede marcar la diferencia en la productividad y la salud postural. </p>
-        <p class="border">La estética de las sillas también juega un papel crucial en la creación de un ambiente agradable y acogedor. Las sillas no solo deben ser funcionales, sino que también deben complementar el estilo y la decoración de cada espacio. Una silla bien diseñada puede convertirse en un punto focal en una habitación, aportando personalidad y carácter.</p>
-        <p class="border">Por último, invertir en buenas sillas es una decisión que va más allá de la comodidad y la estética; también es una inversión en nuestra calidad de vida. Un espacio bien diseñado, con muebles que nos hagan sentir cómodos y felices, puede tener un impacto positivo en nuestro estado de ánimo y bienestar general.</p>
-    </div>
-                         
-</main>
-
-<section id="sec-1">
-    <article><img src="imgs/mr.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/togo.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/Curva.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/cuero.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/negro.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/verde.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/verde 2.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/bauhaus.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/azul.png" alt="" width="100%" height="auto"></article>
-    <article><img src="imgs/rosada.png" alt="" width="100%" height="auto"></article>
-</section>
-
-<section id="sec-2">
-        <div class="div1">
-            <div class="imagen" onclick="abrirModal('imgs/riagnoo.jpeg')">
-                <img src="imgs/riagnoo.jpeg" alt="Imagen 1">
+        <nav>
+            <div class="logo" id="logo-trigger">
+                <img src="imgs/favicon.png" alt="Logo CHAiRS - Abrir Menú" height="40">
             </div>
-    </div>
+            <div class="main-nav-links">
+                <a href="#main-content">ESTACION DE DESCANSO</a>
+                <a href="#sec-1">EJEMPLOS</a>
+                <a href="#sec-2">RIAGNOO</a>
+                <a href="#sec-3">GALERIA</a>
+            </div>
+        </nav>
 
-    <div class="text-container">
-        <p>Riagnoo es un influenciador conocido por su estilo único y su capacidad para conectar con su audiencia a través de contenido entretenido y auténtico. En sus videos, utiliza sillas de diferentes estilos y colores como parte de su escenografía, lo que no solo añade un toque estético, sino que también establece un ambiente acogedor y familiar. Al comenzar sus videos sentado en una silla llamativa, logra captar la atención de sus seguidores desde el primer momento, creando una atmósfera que invita a quedarse y disfrutar del contenido.</p>
-    </div>
+        <main id="main-content">
+            <video id="video" autoplay loop muted playsinline>
+                <source src="imgs/chair.mp4" type="video/mp4">
+                Tu navegador no soporta videos HTML5.
+            </video>
+            <div id="cajatx">
+                 <p>Las sillas son elementos fundamentales en nuestros espacios, ya que no solo cumplen la función de proporcionar un lugar para sentarse, sino que también influyen en nuestra comodidad y bienestar. En entornos como la oficina, una silla ergonómica puede marcar la diferencia en la productividad y la salud postural.</p>
+                 <p>La estética de las sillas también juega un papel crucial en la creación de un ambiente agradable y acogedor. Las sillas no solo deben ser funcionales, sino que también deben complementar el estilo y la decoración de cada espacio. Una silla bien diseñada puede convertirse en un punto focal en una habitación, aportando personalidad y carácter.</p>
+                 <p>Por último, invertir en buenas sillas es una decisión que va más allá de la comodidad y la estética; también es una inversión en nuestra calidad de vida. Un espacio bien diseñado, con muebles que nos hagan sentir cómodos y felices, puede tener un impacto positivo en nuestro estado de ánimo y bienestar general.</p>
+            </div>
+        </main>
 
-    <div class="text-container">
-        <p>Además, Riagnoo aprovecha las sillas para transmitir su personalidad y estilo. A menudo elige sillas que reflejan su carácter, ya sea una silla moderna y minimalista o una más vintage y colorida. Este detalle no solo enriquece visualmente sus videos, sino que también se convierte en un elemento de conversación, permitiendo que sus seguidores se sientan más conectados con él.</p>
-    </div>
+        <section id="sec-1">
+             <article><img src="imgs/mr.png" alt="Ejemplo Silla MR" width="100%" height="auto"></article>
+             <article><img src="imgs/togo.png" alt="Ejemplo Silla Togo" width="100%" height="auto"></article>
+             <article><img src="imgs/Curva.png" alt="Ejemplo Silla Curva" width="100%" height="auto"></article>
+             <article><img src="imgs/cuero.png" alt="Ejemplo Silla Cuero" width="100%" height="auto"></article>
+             <article><img src="imgs/negro.png" alt="Ejemplo Silla Negra" width="100%" height="auto"></article>
+             <article><img src="imgs/verde.png" alt="Ejemplo Silla Verde" width="100%" height="auto"></article>
+             <article><img src="imgs/verde%202.png" alt="Ejemplo Silla Verde 2" width="100%" height="auto"></article>
+             <article><img src="imgs/bauhaus.png" alt="Ejemplo Silla Bauhaus" width="100%" height="auto"></article>
+             <article><img src="imgs/azul.png" alt="Ejemplo Silla Azul" width="100%" height="auto"></article>
+             <article><img src="imgs/rosada.png" alt="Ejemplo Silla Rosada" width="100%" height="auto"></article>
+        </section>
 
-</section>
-<section id="sec-3">
-    <div class="galeria-container">
-        <div class="imagen" onclick="abrirModal('imgs/space1.jpeg')">
-            <img src="imgs/space1.jpeg" alt="Imagen 1">
-        </div>
-        <div class="imagen" onclick="abrirModal('imgs/space2.jpeg')">
-            <img src="imgs/space2.jpeg" alt="Imagen 2">
-        </div>
-        <div class="imagen" onclick="abrirModal('imgs/space3.jpeg')">
-            <img src="imgs/space3.jpeg" alt="Imagen 3">
-        </div>
-        <div class="imagen" onclick="abrirModal('imgs/space4.jpeg')">
-            <img src="imgs/space4.jpeg" alt="Imagen 4">
-    </div>
-    <div class="imagen" onclick="abrirModal('imgs/space5.jpeg')">
-        <img src="imgs/space5.jpeg" alt="Imagen 4">
-</div>
-    <div class="imagen" onclick="abrirModal('imgs/space6.jpeg')">
-        <img src="imgs/space6.jpeg" alt="Imagen 4">
-</div>
-    <div class="imagen" onclick="abrirModal('imgs/space7.jpeg')">
-        <img src="imgs/space7.jpeg" alt="Imagen 4">
-</div>
-    <div class="imagen" onclick="abrirModal('imgs/space8.jpeg')">
-        <img src="imgs/space8.jpeg" alt="Imagen 4">
-</div>
-    <div class="imagen" onclick="abrirModal('imgs/space9.jpeg')">
-        <img src="imgs/space9.jpeg" alt="Imagen 4">
-</div>
-    <!-- Modal para mostrar imagen en grande -->
-    <div id="modal" class="modal">
-        <span class="cerrar" onclick="cerrarModal()">&times;</span>
-        <img class="modal-contenido" id="imagenModal">
-    </div>
-</section>
+        <section id="sec-2">
+            <div class="image-container">
+                 <div class="imagen" onclick="abrirModal('imgs/riagnoo.jpeg')">
+                     <img src="imgs/riagnoo.jpeg" alt="Influencer Riagnoo sentado en una silla">
+                 </div>
+             </div>
+             <div class="text-content">
+                 <p>Riagnoo es un influenciador conocido por su estilo único y su capacidad para conectar con su audiencia a través de contenido entretenido y auténtico. En sus videos, utiliza sillas de diferentes estilos y colores como parte de su escenografía, lo que no solo añade un toque estético, sino que también establece un ambiente acogedor y familiar. Al comenzar sus videos sentado en una silla llamativa, logra captar la atención de sus seguidores desde el primer momento, creando una atmósfera que invita a quedarse y disfrutar del contenido.</p>
+                 <p>Además, Riagnoo aprovecha las sillas para transmitir su personalidad y estilo. A menudo elige sillas que reflejan su carácter, ya sea una silla moderna y minimalista o una más vintage y colorida. Este detalle no solo enriquece visualmente sus videos, sino que también se convierte en un elemento de conversación, permitiendo que sus seguidores se sientan más conectados con él.</p>
+             </div>
+        </section>
+
+        <section id="sec-3">
+             <h2>Galería de Espacios</h2>
+             <div class="galeria-container">
+                 <div class="imagen" onclick="abrirModal('imgs/space1.jpeg')"> <img src="imgs/space1.jpeg" alt="Espacio decorado con silla 1"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space2.jpeg')"> <img src="imgs/space2.jpeg" alt="Espacio decorado con silla 2"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space3.jpeg')"> <img src="imgs/space3.jpeg" alt="Espacio decorado con silla 3"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space4.jpeg')"> <img src="imgs/space4.jpeg" alt="Espacio decorado con silla 4"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space5.jpeg')"> <img src="imgs/space5.jpeg" alt="Espacio decorado con silla 5"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space6.jpeg')"> <img src="imgs/space6.jpeg" alt="Espacio decorado con silla 6"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space7.jpeg')"> <img src="imgs/space7.jpeg" alt="Espacio decorado con silla 7"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space8.jpeg')"> <img src="imgs/space8.jpeg" alt="Espacio decorado con silla 8"> </div>
+                 <div class="imagen" onclick="abrirModal('imgs/space9.jpeg')"> <img src="imgs/space9.jpeg" alt="Espacio decorado con silla 9"> </div>
+             </div>
+             <div id="modal" class="modal"> <span class="cerrar" onclick="cerrarModal()">&times;</span> <img class="modal-contenido" id="imagenModal" alt="Imagen ampliada de la galería"> </div>
+        </section>
+
+        <footer>
+           <p>&copy; CHAiRS. Todos los derechos reservados.</p>
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Inicio</a>
+            <a href="#">Personalizar experiencia</a>
+        </footer>
+    </div> <script>
+        // --- Script Básico para Modal Galería (Existente) ---
+        function abrirModal(src) {
+            const modal = document.getElementById('modal');
+            const imagenModal = document.getElementById('imagenModal');
+            imagenModal.src = src;
+            // Asegúrate que el modal de galería se muestra como flex si usaste eso antes
+            modal.style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        const galeriaModal = document.getElementById('modal');
+         if (galeriaModal) { // Verificar si existe antes de añadir listener
+             galeriaModal.addEventListener('click', function(event) {
+                 if (event.target === galeriaModal) {
+                     cerrarModal();
+                 }
+             });
+         }
 
 
-    <footer>
-        <p>&copy; CHAiRS. Todos los derechos reservados.</p>
-        <a href="#">Términos y condiciones</a>
-        <a href="#">Inicio</a>
-        <a href="#">Personalizar experiencia</a>
-    </footer>
+        // --- NUEVO: Script para Menú Lateral ---
+        const logoTrigger = document.getElementById('logo-trigger');
+        const sideMenu = document.getElementById('side-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const sideMenuLinks = document.querySelectorAll('#side-menu a'); // Seleccionar enlaces DENTRO del menú
 
-<script src="java/script.js"></script>
+        // Función para abrir menú
+        function openSideMenu() {
+            sideMenu.classList.add('open');
+            menuOverlay.classList.add('open');
+        }
+
+        // Función para cerrar menú
+        function closeSideMenu() {
+            sideMenu.classList.remove('open');
+            menuOverlay.classList.remove('open');
+        }
+
+        // Event listeners
+         if(logoTrigger) {
+            logoTrigger.addEventListener('click', openSideMenu);
+         }
+         if(closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', closeSideMenu);
+         }
+         if(menuOverlay) {
+            menuOverlay.addEventListener('click', closeSideMenu);
+         }
+
+
+        // Cerrar menú al hacer clic en un enlace del menú lateral
+        sideMenuLinks.forEach(link => {
+            link.addEventListener('click', closeSideMenu);
+        });
+
+    </script>
 </body>
 </html>
